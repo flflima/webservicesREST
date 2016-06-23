@@ -10,5 +10,8 @@ public interface ClienteDao {
 	
 	List<Cliente> listarClientes();
 	
+	Cliente buscarCliente(long id);
+	
 	void atualizarCliente(Cliente cliente, long id);
+	
 }

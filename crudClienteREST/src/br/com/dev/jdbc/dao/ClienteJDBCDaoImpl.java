@@ -67,6 +67,34 @@ public class ClienteJDBCDaoImpl implements ClienteDao {
 	}
 
 	@Override
+	public Cliente buscarCliente(long id) {
+		String sql = "SELECT * FROM cliente WHERE id = ?";
+		Cliente cliente = null;
+		
+		try {
+			PreparedStatement ps = this.connection.prepareStatement(sql);
+			
+			ps.setLong(1, id);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.next()) {
+				cliente = new Cliente();
+				cliente.setId(rs.getLong("id"));
+				cliente.setIdade(rs.getInt("idade"));
+				cliente.setNome(rs.getString("nome"));
+			}
+			
+			ps.close();
+			rs.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
+		return cliente;
+	}
+
+	@Override
 	public void atualizarCliente(Cliente cliente, long id) {
 		String sql = "UPDATE cliente SET nome = ?, idade = ? WHERE id = ?";
 		

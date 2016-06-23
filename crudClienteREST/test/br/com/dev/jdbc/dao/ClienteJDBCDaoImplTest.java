@@ -31,11 +31,25 @@ public class ClienteJDBCDaoImplTest {
 		List<Cliente> clientes = dao.listarClientes();
 		
 		Assert.assertTrue(clientes.size() > 0);
+	}
+	
+	@Test 
+	public void teste03BuscarCliente() {
+		ClienteJDBCDaoImpl dao = new ClienteJDBCDaoImpl();
+		
+
+		List<Cliente> clientes = dao.listarClientes();
+		
+		Cliente cliente = clientes.get(0);
+
+		Cliente clienteRecuperado = dao.buscarCliente(cliente.getId());
+		
+		Assert.assertEquals(cliente.getNome(), clienteRecuperado.getNome());
 		
 	}
 	
 	@Test
-	public void teste03AtualizarCliente() {
+	public void teste04AtualizarCliente() {
 		ClienteJDBCDaoImpl dao = new ClienteJDBCDaoImpl();
 		
 		Cliente cliente = new Cliente();
