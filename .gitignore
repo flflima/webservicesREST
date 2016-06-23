@@ -1,2 +1,4 @@
 .metadata/
 RemoteSystemsTempFiles/
+crudClienteREST/target/
+crudClienteREST/.settings/
