@@ -1,5 +1,6 @@
 package br.com.dev.resources;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,12 +16,20 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import br.com.dev.dao.ClienteDao;
 import br.com.dev.entidades.Cliente;
+import br.com.dev.jdbc.dao.ClienteJDBCDaoImpl;
 
 @Path("/clientes")
 public class ClienteResource {
 	private static Map<Long, Cliente> clientes;
 	private static long idCliente;
+	
+	private ClienteDao dao;
+
+	public ClienteResource() {
+		this.dao = new ClienteJDBCDaoImpl();
+	}
 	
 	static {
 		clientes = new HashMap<Long, Cliente>();
@@ -36,8 +45,7 @@ public class ClienteResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Cliente> getClientes()
-	{
+	public List<Cliente> getClientes() {
 		return new ArrayList<Cliente>(clientes.values());
 	}
 	
@@ -45,9 +53,14 @@ public class ClienteResource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
 	public String incluirCliente(Cliente c) {
-		c.setId(++idCliente);
-		clientes.put(c.getId(), c);
-		return c.getNome() + " adicionado!";
+		try {
+			dao.incluirCliente(c);
+			return c.getNome() + " adicionado!";
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return "Erro ao incluir";
 	}
 	
 	@PUT
