@@ -36,7 +36,6 @@ public class ClienteJDBCDaoImplTest {
 	@Test 
 	public void teste03BuscarCliente() {
 		ClienteJDBCDaoImpl dao = new ClienteJDBCDaoImpl();
-		
 
 		List<Cliente> clientes = dao.listarClientes();
 		
@@ -61,10 +60,22 @@ public class ClienteJDBCDaoImplTest {
 		
 		dao.atualizarCliente(cliente, ultimoClienteIncluido.getId());
 		
-		clientes = dao.listarClientes();
-		ultimoClienteIncluido = clientes.get(clientes.size() - 1);
+		ultimoClienteIncluido = dao.buscarCliente(ultimoClienteIncluido.getId());
 		
 		Assert.assertEquals("Fulano de Tal", ultimoClienteIncluido.getNome());
+	}
+	
+	@Test
+	public void teste05RemoverCliente() {
+		ClienteJDBCDaoImpl dao = new ClienteJDBCDaoImpl();
+
+		List<Cliente> clientes = dao.listarClientes();
+		Cliente ultimoCliente = clientes.get(clientes.size() - 1);
+		long idUltimoCliente = ultimoCliente.getId();
+		
+		dao.removerCliente(idUltimoCliente);
+		
+		Assert.assertNull(dao.buscarCliente(idUltimoCliente));
 	}
 
 }

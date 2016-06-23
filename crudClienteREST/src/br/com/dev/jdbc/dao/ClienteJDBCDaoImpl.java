@@ -112,4 +112,20 @@ public class ClienteJDBCDaoImpl implements ClienteDao {
 		}
 	}
 
+	@Override
+	public void removerCliente(long id) {
+		String sql = "DELETE FROM cliente WHERE id = ?";
+		
+		try {
+			PreparedStatement ps = this.connection.prepareStatement(sql);
+			
+			ps.setLong(1, id);
+			
+			ps.execute();
+			ps.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
 }

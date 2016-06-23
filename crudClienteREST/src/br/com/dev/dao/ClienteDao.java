@@ -14,4 +14,5 @@ public interface ClienteDao {
 	
 	void atualizarCliente(Cliente cliente, long id);
 	
+	void removerCliente(long id);
 }
