@@ -31,8 +31,9 @@ public class ClienteResource {
 	}
 
 	@GET
+	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Cliente buscarCliente(long id) {
+	public Cliente buscarCliente(@PathParam("id") long id) {
 		return dao.buscarCliente(id);
 	}
 	
