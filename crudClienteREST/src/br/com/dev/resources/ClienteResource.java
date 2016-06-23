@@ -1,7 +1,6 @@
 package br.com.dev.resources;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,7 +45,7 @@ public class ClienteResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Cliente> getClientes() {
-		return new ArrayList<Cliente>(clientes.values());
+		return dao.listarClientes();
 	}
 	
 	@POST
