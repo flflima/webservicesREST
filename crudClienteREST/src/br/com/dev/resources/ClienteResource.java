@@ -1,8 +1,6 @@
 package br.com.dev.resources;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -20,25 +18,10 @@ import br.com.dev.jdbc.dao.ClienteJDBCDaoImpl;
 
 @Path("/clientes")
 public class ClienteResource {
-	private static Map<Long, Cliente> clientes;
-	private static long idCliente;
-	
 	private ClienteDao dao;
 
 	public ClienteResource() {
 		this.dao = new ClienteJDBCDaoImpl();
-	}
-	
-	static {
-		clientes = new HashMap<Long, Cliente>();
-		idCliente = 1;
-		
-		Cliente c = new Cliente();
-		c.setId(idCliente);
-		c.setNome("Fulano");
-		c.setIdade(20);
-		
-		clientes.put(1L, c);
 	}
 	
 	@GET
@@ -96,8 +79,22 @@ public class ClienteResource {
 	@Path("/{id}")
 	@Produces(MediaType.TEXT_PLAIN)
 	public String removerCliente(@PathParam("id") long id) {
-		String nomeCliente = clientes.get(id).getNome();
-		clientes.remove(id);
-		return nomeCliente + " removido!";
+		Cliente clienteAtual = dao.buscarCliente(id);
+		
+		if (clienteAtual == null) {
+			return "Cliente id: " + id + " não foi localizado.";
+		}
+		
+		try {
+			String nomeCliente = clienteAtual.getNome();
+			
+			dao.removerCliente(id);
+			
+			return nomeCliente + " removido!";
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+		}
+		
+		return "Erro ao remover";
 	}
 }

@@ -58,4 +58,17 @@ public class ClienteResourceTest {
 
 		Assert.assertEquals("Fulano de Tal", resource.buscarCliente(cliente.getId()).getNome());
 	}
+	
+	@Test
+	public void testar05RemoverCliente() {
+		ClienteResource resource = new ClienteResource();
+
+		List<Cliente> clientes = resource.getClientes();
+		Cliente cliente = clientes.get(0);
+		long idCliente = cliente.getId();
+		
+		resource.removerCliente(idCliente);
+		
+		Assert.assertNull(resource.buscarCliente(idCliente));
+	}
 }
