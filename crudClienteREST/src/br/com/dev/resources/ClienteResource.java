@@ -1,6 +1,5 @@
 package br.com.dev.resources;
 
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,7 +60,7 @@ public class ClienteResource {
 		try {
 			dao.incluirCliente(c);
 			return c.getNome() + " adicionado!";
-		} catch (SQLException e) {
+		} catch (RuntimeException e) {
 			e.printStackTrace();
 		}
 		
@@ -73,10 +72,24 @@ public class ClienteResource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
 	public String atualizarCliente(Cliente c, @PathParam("id") long id) {
-		Cliente clienteAtual = clientes.get(id);
-		clienteAtual.setNome(c.getNome());
-		clienteAtual.setIdade(c.getIdade());
-		return c.getNome() + " atualizado!";
+		Cliente clienteAtual = dao.buscarCliente(id);
+		
+		if (clienteAtual == null) {
+			return "Cliente id: " + c.getId() + " não foi localizado.";
+		}
+		
+		try {
+			clienteAtual.setNome(c.getNome());
+			clienteAtual.setIdade(c.getIdade());
+			
+			dao.atualizarCliente(clienteAtual, id);
+			
+			return c.getNome() + " atualizado!";
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+		}
+
+		return "Erro ao atualizar";
 	}
 	
 	@DELETE

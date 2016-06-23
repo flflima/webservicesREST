@@ -1,6 +1,5 @@
 package br.com.dev.jdbc.dao;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import org.junit.Assert;
@@ -16,18 +15,14 @@ public class ClienteJDBCDaoImplTest {
 
 	@Test
 	public void testar01IncluirCliente() {
-		try {
-			ClienteDao dao = new ClienteJDBCDaoImpl();
-			Cliente cliente = new Cliente();
-			cliente.setNome("Fulano Teste");
-			cliente.setIdade(15);
-			
-			dao.incluirCliente(cliente);
-			
-			Assert.assertNotNull(cliente.getId());
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		ClienteDao dao = new ClienteJDBCDaoImpl();
+		Cliente cliente = new Cliente();
+		cliente.setNome("Fulano Teste");
+		cliente.setIdade(15);
+		
+		dao.incluirCliente(cliente);
+		
+		Assert.assertNotNull(cliente.getId());
 	}
 	
 	@Test

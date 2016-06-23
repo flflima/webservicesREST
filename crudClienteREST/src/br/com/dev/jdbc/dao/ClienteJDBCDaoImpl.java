@@ -22,7 +22,7 @@ public class ClienteJDBCDaoImpl implements ClienteDao {
 	}
 
 	@Override
-	public void incluirCliente(Cliente cliente) throws SQLException {
+	public void incluirCliente(Cliente cliente) {
 		String sql = "INSERT INTO cliente (nome, idade) VALUES (?, ?)";
 		
 		try {

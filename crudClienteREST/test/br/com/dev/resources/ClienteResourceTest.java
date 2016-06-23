@@ -44,7 +44,18 @@ public class ClienteResourceTest {
 		Cliente clienteRecuperado = resource.buscarCliente(cliente.getId());
 		
 		Assert.assertEquals(cliente.getNome(), clienteRecuperado.getNome());
-		
 	}
 
+	@Test
+	public void testar04AtualizarCliente() {
+		ClienteResource resource = new ClienteResource();
+		
+		List<Cliente> clientes = resource.getClientes();
+		Cliente cliente = clientes.get(0);
+		cliente.setNome("Fulano de Tal");
+		
+		resource.atualizarCliente(cliente, cliente.getId());
+
+		Assert.assertEquals("Fulano de Tal", resource.buscarCliente(cliente.getId()).getNome());
+	}
 }
