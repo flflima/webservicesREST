@@ -33,5 +33,18 @@ public class ClienteResourceTest {
 		
 		Assert.assertTrue(clientes.size() > 0);
 	}
+	
+	@Test
+	public void testar03BuscarCliente() {
+		ClienteResource resource = new ClienteResource();
+
+		List<Cliente> clientes = resource.getClientes();
+		Cliente cliente = clientes.get(0);
+		
+		Cliente clienteRecuperado = resource.buscarCliente(cliente.getId());
+		
+		Assert.assertEquals(cliente.getNome(), clienteRecuperado.getNome());
+		
+	}
 
 }

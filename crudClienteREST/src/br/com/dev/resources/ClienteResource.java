@@ -47,6 +47,12 @@ public class ClienteResource {
 	public List<Cliente> getClientes() {
 		return dao.listarClientes();
 	}
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Cliente buscarCliente(long id) {
+		return dao.buscarCliente(id);
+	}
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
