@@ -14,7 +14,7 @@ import br.com.dev.entidades.Cliente;
 public class ClienteJDBCDaoImplTest {
 
 	@Test
-	public void teste01IncluirCliente() {
+	public void testar01IncluirCliente() {
 		ClienteDao dao = new ClienteJDBCDaoImpl();
 		Cliente cliente = new Cliente();
 		cliente.setNome("Fulano Teste");
@@ -26,7 +26,7 @@ public class ClienteJDBCDaoImplTest {
 	}
 	
 	@Test
-	public void teste02ListarClientes() {
+	public void testar02ListarClientes() {
 		ClienteDao dao = new ClienteJDBCDaoImpl();
 		
 		List<Cliente> clientes = dao.listarClientes();
@@ -35,7 +35,7 @@ public class ClienteJDBCDaoImplTest {
 	}
 	
 	@Test 
-	public void teste03BuscarCliente() {
+	public void testar03BuscarCliente() {
 		ClienteDao dao = new ClienteJDBCDaoImpl();
 
 		List<Cliente> clientes = dao.listarClientes();
@@ -49,7 +49,7 @@ public class ClienteJDBCDaoImplTest {
 	}
 	
 	@Test
-	public void teste04AtualizarCliente() {
+	public void testar04AtualizarCliente() {
 		ClienteDao dao = new ClienteJDBCDaoImpl();
 		
 		Cliente cliente = new Cliente();
@@ -67,7 +67,7 @@ public class ClienteJDBCDaoImplTest {
 	}
 	
 	@Test
-	public void teste05RemoverCliente() {
+	public void testar05RemoverCliente() {
 		ClienteDao dao = new ClienteJDBCDaoImpl();
 
 		List<Cliente> clientes = dao.listarClientes();
