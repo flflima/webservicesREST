@@ -18,7 +18,7 @@ public class ClienteJDBCDaoImpl implements ClienteDao {
 	private Connection connection;
 
 	public ClienteJDBCDaoImpl() {
-		this.connection = ConnectionFactory.getConnection();
+		this.connection = ConnectionFactory.getConnectionTest();
 	}
 
 	@Override

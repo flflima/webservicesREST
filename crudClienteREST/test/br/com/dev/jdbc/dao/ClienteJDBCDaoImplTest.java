@@ -7,6 +7,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import br.com.dev.dao.ClienteDao;
 import br.com.dev.entidades.Cliente;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -14,7 +15,7 @@ public class ClienteJDBCDaoImplTest {
 
 	@Test
 	public void teste01IncluirCliente() {
-		ClienteJDBCDaoImpl dao = new ClienteJDBCDaoImpl();
+		ClienteDao dao = new ClienteJDBCDaoImpl();
 		Cliente cliente = new Cliente();
 		cliente.setNome("Fulano Teste");
 		cliente.setIdade(15);
@@ -26,7 +27,7 @@ public class ClienteJDBCDaoImplTest {
 	
 	@Test
 	public void teste02ListarClientes() {
-		ClienteJDBCDaoImpl dao = new ClienteJDBCDaoImpl();
+		ClienteDao dao = new ClienteJDBCDaoImpl();
 		
 		List<Cliente> clientes = dao.listarClientes();
 		
@@ -35,7 +36,7 @@ public class ClienteJDBCDaoImplTest {
 	
 	@Test 
 	public void teste03BuscarCliente() {
-		ClienteJDBCDaoImpl dao = new ClienteJDBCDaoImpl();
+		ClienteDao dao = new ClienteJDBCDaoImpl();
 
 		List<Cliente> clientes = dao.listarClientes();
 		
@@ -49,7 +50,7 @@ public class ClienteJDBCDaoImplTest {
 	
 	@Test
 	public void teste04AtualizarCliente() {
-		ClienteJDBCDaoImpl dao = new ClienteJDBCDaoImpl();
+		ClienteDao dao = new ClienteJDBCDaoImpl();
 		
 		Cliente cliente = new Cliente();
 		cliente.setNome("Fulano de Tal");
@@ -67,7 +68,7 @@ public class ClienteJDBCDaoImplTest {
 	
 	@Test
 	public void teste05RemoverCliente() {
-		ClienteJDBCDaoImpl dao = new ClienteJDBCDaoImpl();
+		ClienteDao dao = new ClienteJDBCDaoImpl();
 
 		List<Cliente> clientes = dao.listarClientes();
 		Cliente ultimoCliente = clientes.get(clientes.size() - 1);
