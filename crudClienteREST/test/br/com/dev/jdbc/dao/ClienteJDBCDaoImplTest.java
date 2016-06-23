@@ -13,7 +13,7 @@ import br.com.dev.entidades.Cliente;
 public class ClienteJDBCDaoImplTest {
 
 	@Test
-	public void testIncluirCliente() {
+	public void teste01IncluirCliente() {
 		ClienteJDBCDaoImpl dao = new ClienteJDBCDaoImpl();
 		Cliente cliente = new Cliente();
 		cliente.setNome("Fulano Teste");
@@ -25,19 +25,32 @@ public class ClienteJDBCDaoImplTest {
 	}
 	
 	@Test
-	public void testListarClientes() {
+	public void teste02ListarClientes() {
 		ClienteJDBCDaoImpl dao = new ClienteJDBCDaoImpl();
-
-		Cliente cliente = new Cliente();
-		cliente.setNome("Fulano Teste");
-		cliente.setIdade(15);
-		
-		dao.incluirCliente(cliente);
 		
 		List<Cliente> clientes = dao.listarClientes();
 		
 		Assert.assertTrue(clientes.size() > 0);
 		
+	}
+	
+	@Test
+	public void teste03AtualizarCliente() {
+		ClienteJDBCDaoImpl dao = new ClienteJDBCDaoImpl();
+		
+		Cliente cliente = new Cliente();
+		cliente.setNome("Fulano de Tal");
+		cliente.setIdade(15);
+		
+		List<Cliente> clientes = dao.listarClientes();
+		Cliente ultimoClienteIncluido = clientes.get(clientes.size() - 1);
+		
+		dao.atualizarCliente(cliente, ultimoClienteIncluido.getId());
+		
+		clientes = dao.listarClientes();
+		ultimoClienteIncluido = clientes.get(clientes.size() - 1);
+		
+		Assert.assertEquals("Fulano de Tal", ultimoClienteIncluido.getNome());
 	}
 
 }

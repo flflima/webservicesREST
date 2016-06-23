@@ -9,4 +9,6 @@ public interface ClienteDao {
 	void incluirCliente(Cliente cliente);
 	
 	List<Cliente> listarClientes();
+	
+	void atualizarCliente(Cliente cliente, long id);
 }

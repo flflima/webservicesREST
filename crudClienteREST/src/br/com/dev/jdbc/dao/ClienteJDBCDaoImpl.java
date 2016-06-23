@@ -59,13 +59,29 @@ public class ClienteJDBCDaoImpl implements ClienteDao {
 			
 			rs.close();
 			ps.close();
-			
-			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 
 		return clientes;
+	}
+
+	@Override
+	public void atualizarCliente(Cliente cliente, long id) {
+		String sql = "UPDATE cliente SET nome = ?, idade = ? WHERE id = ?";
+		
+		try {
+			PreparedStatement ps = this.connection.prepareStatement(sql);
+			
+			ps.setString(1, cliente.getNome());
+			ps.setInt(2, cliente.getIdade());
+			ps.setLong(3, id);
+			
+			ps.executeUpdate();
+			ps.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 }
