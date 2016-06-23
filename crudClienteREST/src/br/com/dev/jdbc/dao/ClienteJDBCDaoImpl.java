@@ -4,7 +4,10 @@ import java.sql.Connection;
 
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.dev.dao.ClienteDao;
 import br.com.dev.entidades.Cliente;
@@ -33,6 +36,36 @@ public class ClienteJDBCDaoImpl implements ClienteDao {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	@Override
+	public List<Cliente> listarClientes() {
+		String sql = "SELECT * FROM cliente order by nome";
+		
+		List<Cliente> clientes = new ArrayList<Cliente>();
+		
+		try {
+			PreparedStatement ps = this.connection.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				Cliente cliente = new Cliente();
+				cliente.setId(rs.getLong("id"));
+				cliente.setNome(rs.getString("nome"));
+				cliente.setIdade(rs.getInt("idade"));
+				
+				clientes.add(cliente);
+			}
+			
+			rs.close();
+			ps.close();
+			
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+		return clientes;
 	}
 
 }
