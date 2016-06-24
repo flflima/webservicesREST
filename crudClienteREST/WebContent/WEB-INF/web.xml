@@ -22,6 +22,6 @@
 
 	<servlet-mapping>
 		<servlet-name>CRUD Clientes</servlet-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/crudCliente/*</url-pattern>
 	</servlet-mapping>
 </web-app>
