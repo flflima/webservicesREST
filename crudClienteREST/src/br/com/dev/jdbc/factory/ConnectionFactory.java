@@ -12,21 +12,15 @@ public class ConnectionFactory {
 
 	public static Connection getConnection() {
 		try {
-			return DriverManager.getConnection(
-					"jdbc:mysql://localhost/webservicerest", "root",
-					"admin");
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-	}
-	
-	public static Connection getConnectionTest() {
-		try {
+			Class.forName("com.mysql.jdbc.Driver");
 			return DriverManager.getConnection(
 					"jdbc:mysql://localhost/testwebservicerest", "root",
 					"admin");
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
+		} catch (ClassNotFoundException e) {
+			throw new RuntimeException(e);
 		}
 	}
+	
 }
