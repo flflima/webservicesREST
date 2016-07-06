@@ -7,6 +7,9 @@ public class Cliente {
 	private long id;
 	private String nome;
 	private int idade;
+	
+	public Cliente() {
+	}
 
 	public long getId() {
 		return id;
