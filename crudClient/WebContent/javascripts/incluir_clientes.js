@@ -3,7 +3,7 @@
  */
 $(function() {
 
-	$("#bt").click(function() {
+	$("#btnIncluir").click(function() {
 		var cliente = {
 			"nome" : $("#nomeCliente").val(),
 			"idade" : parseInt($("#idadeCliente").val())
