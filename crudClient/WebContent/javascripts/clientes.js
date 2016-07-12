@@ -11,7 +11,8 @@ $(function() {
 				var dados = "<td>" + item.nome + "</td><td>" + item.idade + "</td>";
 				console.log("http://localhost:8080/crudCliente/crud/clientes/" + item.id);
 				var linkDetalhar = "<td><a href='http://localhost:8080/crudClient/detalhar_cliente.jsp?id=" + item.id + "'>Detalhar</a></td>";
-				$("#listaClientes").append("<tr>" + dados + linkDetalhar + "</tr>");
+				var linkExcluir = "<td><a href='http://localhost:8080/crudClient/excluir_cliente.jsp?id=" + item.id + "'>Excluir</a></td>";
+				$("#listaClientes").append("<tr>" + dados + linkDetalhar + linkExcluir + "</tr>");
 			});
 		});
 	}

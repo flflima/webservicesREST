@@ -11,10 +11,11 @@
 </head>
 <body>
 	<c:set var="cliente" value="${param.id}"></c:set>
-	<h1>Detalhes Cliente</h1>
 	<div id="info_cliente">	</div>
 	<script>
-		detalharCliente('${cliente}');
+		excluirCliente('${cliente}');
 	</script>
+	<br />
+	<a href="http://localhost:8080/crudClient/clientes.jsp">Voltar</a>
 </body>
 </html>
