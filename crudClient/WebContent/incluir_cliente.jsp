@@ -12,7 +12,7 @@
 	<form method="post" id="formIncluir" >  
 		<label>Nome: </label><input type="text" id="nomeCliente" > <br>
 		<label>Idade: </label><input type="text" id="idadeCliente" > <br>
-		<input type="button" id="bt" value="Enviar">
+		<input type="button" id="btnIncluir" value="Enviar">
 	</form>
 </body>
 </html>
