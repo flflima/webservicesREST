@@ -7,7 +7,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Clientes</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="javascripts/detalhar_cliente.js" type="text/javascript"></script>
+	<script src="javascripts/crud_cliente.js" type="text/javascript"></script>
 </head>
 <body>
 	<c:set var="cliente" value="${param.id}"></c:set>
@@ -16,5 +16,7 @@
 	<script>
 		detalharCliente('${cliente}');
 	</script>
+	<br />
+	<a href="http://localhost:8080/crudClient/clientes.jsp">Voltar</a>
 </body>
 </html>

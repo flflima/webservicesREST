@@ -6,7 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Clientes</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="javascripts/incluir_clientes.js" type="text/javascript"></script>
+	<script src="javascripts/crud_cliente.js" type="text/javascript"></script>
 </head>
 <body>
 	<form method="post" id="formIncluir" >  
@@ -14,5 +14,7 @@
 		<label>Idade: </label><input type="text" id="idadeCliente" > <br>
 		<input type="button" id="btnIncluir" value="Enviar">
 	</form>
+	<br />
+	<a href="http://localhost:8080/crudClient/clientes.jsp">Voltar</a>
 </body>
 </html>
