@@ -23,7 +23,38 @@ $(function() {
 		});
 
 	});
+
+	$("#btnEditar").click(function() {
+		var cliente = {
+			"nome" : $("#nomeCliente").val(),
+			"idade" : parseInt($("#idadeCliente").val())
+		};
+		
+		var idCliente = $("#cmpIdCliente").val();
+
+		$.ajax({
+			url : "http://localhost:8080/crudCliente/crud/clientes/" + idCliente,
+			type : "PUT",
+			data : JSON.stringify(cliente),
+			contentType : "application/json; charset=utf-8"
+		}).done(function(e) {
+			alert("Sucesso! " + e);
+			console.log("Sucesso! " + e);
+		}).fail(function(e) {
+			alert("Ops ocorreu um erro!");
+			console.log("Erro: " + e);
+		});
+
+	});
 });
+
+function carregarEdicaoCliente(id) {
+	$.getJSON("http://localhost:8080/crudCliente/crud/clientes/" + id,
+			function(cliente) {
+				$("#nomeCliente").val(cliente.nome);
+				$("#idadeCliente").val(cliente.idade);
+			});
+}
 
 function detalharCliente(id) {
 	$.getJSON("http://localhost:8080/crudCliente/crud/clientes/" + id, function(data) {
