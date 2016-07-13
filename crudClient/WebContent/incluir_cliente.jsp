@@ -9,10 +9,11 @@
 	<script src="javascripts/crud_cliente.js" type="text/javascript"></script>
 </head>
 <body>
+	<h1>Incluir Cliente</h1>
 	<form method="post" id="formIncluir" >  
 		<label>Nome: </label><input type="text" id="nomeCliente" > <br>
 		<label>Idade: </label><input type="text" id="idadeCliente" > <br>
-		<input type="button" id="btnIncluir" value="Enviar">
+		<input type="button" id="btnIncluir" value="Incluir">
 	</form>
 	<br />
 	<a href="http://localhost:8080/crudClient/clientes.jsp">Voltar</a>

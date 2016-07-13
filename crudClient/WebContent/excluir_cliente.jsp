@@ -10,10 +10,10 @@
 	<script src="javascripts/crud_cliente.js" type="text/javascript"></script>
 </head>
 <body>
-	<c:set var="cliente" value="${param.id}"></c:set>
+	<c:set var="idCliente" value="${param.id}"></c:set>
 	<div id="info_cliente">	</div>
 	<script>
-		excluirCliente('${cliente}');
+		excluirCliente('${idCliente}');
 	</script>
 	<br />
 	<a href="http://localhost:8080/crudClient/clientes.jsp">Voltar</a>
