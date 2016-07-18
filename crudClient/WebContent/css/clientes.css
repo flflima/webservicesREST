@@ -1,8 +1,8 @@
 table#listaClientes {
 	border: 1px;
 	border-width: 1px;
-	margin-left:auto; 
-    margin-right:auto;
+	margin-left: auto;
+	margin-right: auto;
 	text-align: center;
 	width: 75%;
 }
@@ -12,5 +12,48 @@ td {
 }
 
 tr:nth-child(even) {
-    background-color: #CCCCCC;
+	background-color: #CCCCCC;
+}
+
+h1, h2 {
+	text-align: center;
+}
+
+#divNovoCliente {
+	padding: 10px 10px 10px 10px;
+	margin-left: 12%;
+}
+
+#novoCliente {
+	font-weight: bold;
+	font-size: x-large;
+	color: blue;
+}
+
+#novoCliente:link {
+	text-decoration: none;
+}
+
+#novoCliente:VISITED {
+	text-decoration: none;
+}
+
+#novoCliente:hover {
+	border: 1px;
+	border-style: dashed;
+	border-radius: 5px;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#novoCliente:ACTIVE {
+	text-decoration: none;
+}
+
+h1#titulo {
+	border: 2px solid;
+	width: 75%;
+	margin-left: 12%;
 }

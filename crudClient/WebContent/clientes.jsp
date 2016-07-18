@@ -10,11 +10,9 @@
 	<link type='text/css' href='css/clientes.css' rel='stylesheet'>
 </head>
 <body>
-	<div align="center">
-		<h2>Clientes</h2>
-	</div>
-	<div>
-		<a href="http://localhost:8080/crudClient/incluir_cliente.jsp">Novo Cliente</a>
+	<h1 id="titulo">Clientes</h1>
+	<div id="divNovoCliente">
+		<a href="http://localhost:8080/crudClient/incluir_cliente.jsp" id="novoCliente">Novo Cliente</a>
 	</div>
 	<table id="listaClientes">
 		<tr>
