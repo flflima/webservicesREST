@@ -17,8 +17,10 @@
 	<br />
 	<table id="listaClientes">
 		<tr>
-			<th>Nome</th>
-			<th>Idade</th>
+			<th width="60%">Nome</th>
+			<th width="20%">Idade</th>
+			<th width="10%"></th>
+			<th width="10%"></th>
 		</tr>
 	</table>
 </body>
