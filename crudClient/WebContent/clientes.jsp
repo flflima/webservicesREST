@@ -14,6 +14,7 @@
 	<div id="divNovoCliente">
 		<a href="http://localhost:8080/crudClient/incluir_cliente.jsp" id="novoCliente">Novo Cliente</a>
 	</div>
+	<br />
 	<table id="listaClientes">
 		<tr>
 			<th>Nome</th>
