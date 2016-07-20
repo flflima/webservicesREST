@@ -12,8 +12,11 @@ $(function() {
 				var nome = item.nome;
 				var idade = item.idade;
 				
-				var linkExcluir = "<td><a href='http://localhost:8080/crudClient/excluir_cliente.jsp?id=" + id + "'><img src='/crudClient/img/delete.png' height='15' width='15' title='Excluir'></a></td>";
-				var linkEditar = "<td><a href='http://localhost:8080/crudClient/editar_cliente.jsp?id=" + id + "'><img src='/crudClient/img/editar.png' height='15' width='15' title='Editar'></a></td>";
+				var imagemExcluir = "<img src='/crudClient/img/delete.png' height='15' width='15' title='Excluir'>";
+				var imagemEditar = "<img src='/crudClient/img/editar.png' height='15' width='15' title='Editar'>";
+				
+				var linkExcluir = "<td><a href='http://localhost:8080/crudClient/excluir_cliente.jsp?id=" + id + "'>" + imagemExcluir + "</a></td>";
+				var linkEditar = "<td><a href='http://localhost:8080/crudClient/editar_cliente.jsp?id=" + id + "'>" + imagemEditar + "</a></td>";
 				
 				var colunaNome = "<td>" + nome+ "</td>";
 				var colunaIdade = "<td>" + idade + "</td>";
